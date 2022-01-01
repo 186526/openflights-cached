@@ -12,6 +12,8 @@ const {promisify} = require("util");
 
 const {get} = require("https");
 
+fs.mkdir("../dist/");
+
 const awaitWritten = (stream, path) => {
     return new Promise(
         (s, j) => stream
