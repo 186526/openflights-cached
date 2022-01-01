@@ -12,10 +12,6 @@ const {promisify} = require("util");
 
 const {get} = require("https");
 
-fs.mkdir("../dist/icaos/", { recursive: true }, (err) => {
-  if (err) throw err;
-});
-
 const awaitWritten = (stream, path) => {
     return new Promise(
         (s, j) => stream
@@ -63,6 +59,11 @@ const awaitWritten = (stream, path) => {
     ;
 
     const dirs = {};
+    
+    fs.mkdir("../dist/icaos/", { recursive: true }, (err) => {
+  if (err) throw err;
+});
+
 
     return Promise.all([
         awaitWritten(stream.pipe(new DataStream({}), {}).toJSONArray(), "../dist/array.json"),
