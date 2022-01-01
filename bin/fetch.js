@@ -14,7 +14,7 @@ const {get} = require("https");
 
 fs.mkdir("../dist/icaos/", { recursive: true }, (err) => {
   if (err) throw err;
-);
+});
 
 const awaitWritten = (stream, path) => {
     return new Promise(
